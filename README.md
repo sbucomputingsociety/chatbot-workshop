@@ -69,7 +69,7 @@ We're now going to make a Facebook page for you to be able to message your bot. 
  Keep this tab open, you'll need it in a bit
  
 
-## Code
+## Gettting a basic chatbot running
 
  1. Clone or download this repository
  2. Open the `config.json` file
@@ -85,9 +85,18 @@ We're now going to make a Facebook page for you to be able to message your bot. 
 
 ### Database
 
+If you want to keep track of the state various users are in, you'll need a database. We're not going to get into databases in this workshop, but [here's](http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html) a great tutorial on how to use databases in python for those that are interested.
+
 ### Natural language understanding
+
+Our chatbot is pretty simple. You can react to exact commands using "if" statements. But if you want your bot to understand more complicated commands, it may be helpful to use an NLP api. [api.ai](http://api.ai/) is a useful API you may be able to use.
 
 ### Deploying a server
 
-### Accessable to other users
+Right now, our chatbot is running on our local machine. If you kill the running ngrok or python programs, your chatbot will stop working. To have you server run permanently, you'll need to deploy it to a cloud server platform. [Heroku](https://www.heroku.com/) is a great free option. [Here's](https://progblog.io/How-to-deploy-a-Flask-App-to-Heroku/) a tutorial on how to deploy a flask app to heroku.
 
+Because we have edu emails, we can also get free [Digital Ocean](https://www.digitalocean.com/) credits via the [Github student developer pak](https://education.github.com/pack). This one is my favorite because it gives you access to a full Ubuntu server.
+
+### Accessible to other users
+
+Right now, you are the only one that can access your chatbot. After you have deployed it to a server, if you want any Facebook user to access you code, you'll need to submit it to Facebook for approval. Go to the "App Review" section in and follow the instructions there.
