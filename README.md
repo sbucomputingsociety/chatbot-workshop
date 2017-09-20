@@ -26,19 +26,19 @@ Every programmer needs a good text editor. If you don't already have one, I woul
 
 Python is the name of the programming language we'll be using for this workshop.
 
-***Linux:*** this comes installed on linux
+__Linux:__ this comes installed on linux
 
-***Mac:*** This should be pre-installed on Mac.
+__Mac:__ This should be pre-installed on Mac.
 
-***Windows:***
+__Windows:__
 
 #### pip
 
 This is the python package manager. We'll need this to install flask.
 
-***Linux:***  
+__Linux__  
 
-***Mac:*** There are multiple ways of getting pip:
+__Mac:__ There are multiple ways of getting pip:
 1) If you have easy_install, `sudo easy_install pip`.
 2) You can also get it through install python through brew, `brew install python`.
 
