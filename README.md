@@ -32,7 +32,7 @@ Python is the name of the programming language we'll be using for this workshop.
 
 #### pip
 
-This is the python package manager. We'll need this to install flask.
+This is the python package manager. We'll need this to install flask. **If you install python 2.7.9, it will come with pip**
 
 *Ubuntu*: run `sudo apt-get install python-pip`  
 
