@@ -54,8 +54,35 @@ This is a program that allows Facebook's servers to connect to your laptop's loc
 
 Unzip the file
 
-To run ngrok: `./ngrok`
+To run ngrok, find the directory with the ngrok cmd file and run: `./ngrok`
+If you are not in the directory with the ngrok, you can run ngrok by specifying the path to your ngrok bash file in the extracted/unzipped folder. i.e. `~/Downloads/ngrok`
 
+### Getting a Facebook page setup
+
+We're now going to make a Facebook page for you to be able to message your bot. You'll need to be signed into your facebook account.
+
+ 1. Go [here](https://www.facebook.com/pages/create) to create a new FB page. Click "brand or product". Choose "app page" 
+ 2. Pick a good name. This will be the name of your chatbot. Create the page.
+ 3. Go [here](https://developers.facebook.com/quickstarts/?platform=web) to create a new Facebook app. Click "skip and create app ID" in the top right. Type the same name of you page into the app name.
+ 4. Click "add product" in the left panel. Scroll down to "messenger" and click "set up"
+ 5. Scroll down to "Token Generation". Select the page you just made from the dropdown. Copy the page access token.
+ 
+ Keep this tab open, you'll need it in a bit
+ 
+
+## Gettting a basic chatbot running
+
+ 1. Clone or download this repository
+ 2. Open the `config.json` file
+ 3. Replace "<your fb token here>" with the page access token you just copied. **Note:** If you ever publish the code to a chatbot you made online, be careful not to publish this token online. Avoid committing your config file
+ 4. Run `python app.py` from your terminal. While that runs, open another terminal window and cd to the directory of ngrok. Run `ngrok http 5000`
+ 5. Ngrok should have a line that says " Forwarding <some url> -> localhost:5000". Copy the URL you see in place of "some url>". Make sure you copy the one with "https", not "http"
+ 6. Go back to the browser tab with your FB app configuration. Find the Webhooks section and click "setup webhooks"
+ 7. Paste the URL you copied into the "Callback URL" section. Type anything into the "Verify token" field. Check off "messages" and "messaging_postbacks" and click "verify and save". Ask for help if you get an error.
+ 8. There's a dropdown that says "Select a page to subscribe your webhook to the page events". Select the page you made from the dropdown and click "subscribe".
+ 9. Search for you bot name on messanger and try sending it a message. It should respond!
+
+<<<<<<< HEAD
 ### Getting a Facebook page setup
 
 We're now going to make a Facebook page for you to be able to message your bot. You'll need to be signed into your facebook account.
@@ -84,6 +111,51 @@ We're now going to make a Facebook page for you to be able to message your bot. 
 ## Next Steps
 
 ### Database
+=======
+## Next Steps
+Right now, if you have finished the setting up part, you should now have a bot that works on Facebook that returns what you message the bot in "You said: ____your-message____".
+Things to note: 
+
+If you look at the terminal where you ran your app.py, you will see that you can see what you have typed in. 
+
+So how can we enhance this? 
+Notice that the line that determines what your bot returns to you in the Bot messenger is in the line in app.py that says this:
+```
+if msgtext and sender:
+	interface.messageFB("You said: " + msgtext,sender)
+```
+The `interface.messageFB("your string here)` tells your bot what to spit out. But of course, if we want to make our bot more intelligent, we will have to utilize some other technologies to make our bot less stupid. 
+
+
+### Database
+Every mighty programmer will need to store data at some point. You may need your bot to store some data whether it is about the state or if you want to store the past messages your bot has collected into a database. 
+
+Some databases that are easy and quick to install are redis (A dictionary key/value store) or mysql. 
+
+We strongly encourage you to research mysql and other database languages for you to see what may fit your bot's needs.
+
+#### Redis
+For our extended tutorial, we will use redis since it is quick and easy to install and use to store some data about our states/program. 
+
+How to get Redis on your machine? 
+If you have pip, this is super easy to install: ` pip install redis `
+
+Now in your code, you can set it up this way. 
+```
+# Start your redis server
+r = redis.StrictRedis(host='localhost', port=6379, db=0)
+```
+Please do realize that if stop running the file your redis server - your data may not be persisted the next time you make a new redis instance. 
+
+Now that we have redis running, then we should add some data into the storage and extract some data.
+```
+# Add a key (or replace the key) 'pastmessage' with the value 'chatty'
+r.set('pastmessage', 'chatty')
+# Get the value
+x = r.set('pastmessage')
+# in this case x = 'chatty'
+```
+>>>>>>> a4a76adfae46cf025dc2e4741239e15988519be2
 
 ### Natural language understanding
 
