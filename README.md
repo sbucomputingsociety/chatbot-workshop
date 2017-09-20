@@ -46,6 +46,8 @@ This is the python package manager. We'll need this to install flask.
 
 This is a python mdule that lets us create servers. As long as you have pip, you should be able to install Flask using the following command: *pip install flask*
 
+Use Virtualenv if you know how.
+
 #### ngrok
 
 This is a program that allows Facebook's servers to connect to your laptop's localhost. Download the appropriate version [here](https://ngrok.com/)
@@ -70,6 +72,22 @@ We're now going to make a Facebook page for you to be able to message your bot. 
 ## Code
 
  1. Clone or download this repository
- 2. Open the `config.
+ 2. Open the `config.json` file
+ 3. Replace "<your fb token here>" with the page access token you just copied. **Note:** If you ever publish the code to a chatbot you made online, be careful not to publish this token online. Avoid committing your config file
+ 4. Run `python app.py` from your terminal. While that runs, open another terminal window and cd to the directory of ngrok. Run `ngrok http 5000`
+ 5. Ngrok should have a line that says " Forwarding <some url> -> localhost:5000". Copy the URL you see in place of "some url>". Make sure you copy the one with "https", not "http"
+ 6. Go back to the browser tab with your FB app configuration. Find the Webhooks section and click "setup webhooks"
+ 7. Paste the URL you copied into the "Callback URL" section. Type anything into the "Verify token" field. Check off "messages" and "messaging_postbacks" and click "verify and save". Ask for help if you get an error.
+ 8. There's a dropdown that says "Select a page to subscribe your webhook to the page events". Select the page you made from the dropdown and click "subscribe".
+ 9. Search for you bot name on messanger and try sending it a message. It should respond!
 
 ## Next Steps
+
+### Database
+
+### Natural language understanding
+
+### Deploying a server
+
+### Accessable to other users
+
