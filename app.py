@@ -2,9 +2,11 @@ import flask
 import json
 from flask import Flask, request, Response
 from interface import Interface
+from processors import Processors
 
 app = Flask(__name__)
 interface = Interface()
+processor = Processors()
 
 with open("config.json") as config_file:    
 	config = json.load(config_file)
@@ -29,8 +31,12 @@ def index():
 					msgtext = message["message"]["text"]
 
 				if msgtext and sender:
-					interface.messageFB("You said: " + msgtext,sender)
 					print "Received " + msgtext + " from " + sender
+
+					returntext = processor.echo(msgtext)
+					print returntext
+
+					interface.messageFB(returntext,sender)
 				elif sender:
 					interface.messageFB("(y)",sender)
 					
