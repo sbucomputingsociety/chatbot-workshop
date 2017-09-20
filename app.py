@@ -2,10 +2,17 @@ import flask
 import json
 from flask import Flask, request, Response
 from interface import Interface
+import redis
 
 app = Flask(__name__)
 interface = Interface()
 
+### Set up redis on another local host port
+r = redis.StrictRedis(host='localhost', port=6379, db=0)
+### Add a key to redis
+r.set('pastmessage', 'Past Message')
+
+print r.get('foo')
 with open("config.json") as config_file:    
 	config = json.load(config_file)
 
@@ -29,7 +36,17 @@ def index():
 					msgtext = message["message"]["text"]
 
 				if msgtext and sender:
+					pastmessage = r.get('pastmessage')
+					interface.messageFB("Before you said: " + pastmessage,sender)
 					interface.messageFB("You said: " + msgtext,sender)
+					r.set('pastmessage',msgtext)
+
+
+					# logic goes here.... 
+					# It'll  probably take some time for ppl to get everything installed
+
+
+
 					print "Received " + msgtext + " from " + sender
 				elif sender:
 					interface.messageFB("(y)",sender)
