@@ -85,8 +85,6 @@ We're now going to make a Facebook page for you to be able to message your bot. 
 
 ### Database
 
-If you want to keep track of the state various users are in, you'll need a database. We're not going to get into databases in this workshop, but [here's](http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html) a great tutorial on how to use databases in python for those that are interested.
-
 ### Natural language understanding
 
 Our chatbot is pretty simple. You can react to exact commands using "if" statements. But if you want your bot to understand more complicated commands, it may be helpful to use an NLP api. [api.ai](http://api.ai/) is a useful API you may be able to use.
