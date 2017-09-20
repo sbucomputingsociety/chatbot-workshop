@@ -1,0 +1,5 @@
+{
+	"fb_token": "<your fb token here>",
+	"server_port":5000,
+	"secret_key": "thisissecretkey"
+}
