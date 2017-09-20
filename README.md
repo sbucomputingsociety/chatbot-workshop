@@ -121,7 +121,7 @@ Now that we have redis running, then we should add some data into the storage an
 # Add a key (or replace the key) 'pastmessage' with the value 'chatty'
 r.set('pastmessage', 'chatty')
 # Get the value
-x = r.set('pastmessage')
+x = r.get('pastmessage')
 # in this case x = 'chatty'
 ```
 
