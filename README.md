@@ -1,7 +1,7 @@
 # SBCS Create your own chatbot tutorial
 ## for facebook messenger using python flask
 
-Wed Sept 20 6pm  
+6 pm on Wed Sept 20 2017
 Old CS rm 2311
 
 This is the guide for creating your own Facebook chatbot in python flask.
